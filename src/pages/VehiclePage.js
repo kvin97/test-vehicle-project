@@ -1,17 +1,19 @@
 import { Button, Card, Col, Row } from "antd";
+import defaultVehicleImage from "../styles/images/default-vehicle.jpg";
 
 const VehiclePage = ({ vehicle, selectVehicle }) => {
   const { name, details } = vehicle;
   const { description, image, manufactureYear, brand, color } = details || {};
 
   const title = `${brand} ${name} ${manufactureYear}`;
+  const viewImage = image ? image : defaultVehicleImage;
 
   return (
     <>
       <Button onClick={() => selectVehicle(null)}>Back</Button>
       <Card className="custom-card" bordered={true}>
         <div className="custom-card-image">
-          <img src={image} alt="vehicle" />
+          <img src={viewImage} alt="vehicle" />
         </div>
         <div className="custom-card-content">
           <h3>{title}</h3>

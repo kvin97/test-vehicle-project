@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useQuery } from "react-query";
 import fetchVehicles from "../Utils/queryUtils";
 import { Button, Pagination, Spin } from "antd";
@@ -11,6 +12,7 @@ import { useSelector } from "react-redux";
 
 const VehiclesPage = () => {
   const [selectedPage, setSelectedPage] = useState(1);
+  const [totalItems, setTotalItems] = useState(0);
   const [selectedBrand, setSelectedBrand] = useState(null);
   const [selectedVehicle, setSelectedVehicle] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
@@ -20,10 +22,22 @@ const VehiclesPage = () => {
     fetchVehicles
   );
 
+  // set total count of returned vehicles --- this is essential for initial rendering of items to set total
+  useEffect(() => {
+    if (selectedPage === 1 && vehicles?.data) {
+      setTotalItems(vehicles.data?.length);
+    }
+  }, [selectedPage, vehicles?.data]);
+
   // get biddings from redux store
   const biddings = useSelector((state) => state.biddings);
 
-  const vehiclesData = vehicles ? vehicles.data : [];
+  /*
+    slice the initial load since it deliver all the items in order to find the total count
+  */
+  const vehiclesData = vehicles
+    ? vehicles.data?.slice(0, VEHICLE_LOAD_PAGE_SIZE)
+    : [];
 
   const selectBrand = ({ key }) => {
     setSelectedBrand(key);
@@ -68,7 +82,7 @@ const VehiclesPage = () => {
             <Pagination
               defaultCurrent={1}
               current={selectedPage}
-              total={36}
+              total={totalItems}
               pageSize={VEHICLE_LOAD_PAGE_SIZE}
               onChange={changePage}
             />

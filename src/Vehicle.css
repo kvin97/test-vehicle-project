@@ -2,7 +2,7 @@
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; 
+    justify-content: flex-start; 
     margin: -8px; 
     max-width: 1200px;
     margin: 0 auto;
@@ -11,6 +11,17 @@
   .card {
     flex: 0 0 calc(33.33% - 16px);
     margin: 8px;
+  }
+
+  .vehicle-list-image-container {
+    display: flex !important;      
+    justify-content: center;
+    align-items: center;
+  }
+
+  .vehicle-list-image {
+    width: auto; 
+    height: 15rem; 
   }
 
 /* Single Card View */  
