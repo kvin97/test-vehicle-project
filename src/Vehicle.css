@@ -1,0 +1,63 @@
+/* Cards List View */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+    margin: -8px; 
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .card {
+    flex: 0 0 calc(33.33% - 16px);
+    margin: 8px;
+  }
+
+/* Single Card View */  
+  .custom-card {
+    display: flex;
+    align-items: center; 
+  }
+  
+  .custom-card-image {
+    flex: 0 0 auto; 
+    padding: 16px;
+  }
+  
+  .custom-card-image img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .custom-card-content {
+    flex: 1; 
+    padding: 16px;
+  }
+
+  /* Bidding Card Image */
+  .bidding-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .bidding-card-image {
+    flex: 0 0 auto; 
+    margin-right: 16px; 
+  }
+  
+  .bidding-card-image img {
+    height: auto;
+    max-width: 200px;
+  }
+  
+  .bidding-card-content {
+    flex: 1; 
+  }
+
+  .color-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-top: 10px;
+  }

@@ -1,0 +1,3 @@
+const VEHICLE_LOAD_PAGE_SIZE = 6;
+
+export default VEHICLE_LOAD_PAGE_SIZE;
