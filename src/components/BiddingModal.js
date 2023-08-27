@@ -1,4 +1,5 @@
 import { Card, Modal } from "antd";
+import defaultVehicleImage from "../styles/images/default-vehicle.jpg";
 
 const BiddingModal = ({ visible, onClose, biddings = [] }) => {
   const total = biddings.reduce(
@@ -8,7 +9,7 @@ const BiddingModal = ({ visible, onClose, biddings = [] }) => {
 
   return (
     <Modal
-      title="Card Modal"
+      title="Biddings"
       visible={visible}
       onCancel={onClose}
       footer={null}
@@ -16,15 +17,16 @@ const BiddingModal = ({ visible, onClose, biddings = [] }) => {
     >
       {biddings.map((bidding) => {
         const { bidValue, title, image } = bidding;
+        const viewImage = image ? image : defaultVehicleImage;
 
         return (
           <Card className="bidding-card" bordered key={title}>
             <div className="bidding-card-image">
-              <img src={image} alt={title} />
+              <img src={viewImage} alt={title} />
             </div>
             <div className="bidding-card-content">
               <h3>{title}</h3>
-              <p>Bid Value: {bidValue} LKR</p>
+              <p>{bidValue} LKR</p>
             </div>
           </Card>
         );

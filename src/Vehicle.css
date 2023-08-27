@@ -13,6 +13,17 @@
     margin: 8px;
   }
 
+  .vehicle-list-image-container {
+    display: flex !important;      
+    justify-content: center;
+    align-items: center;
+  }
+
+  .vehicle-list-image {
+    width: auto; 
+    height: 15rem; 
+  }
+
 /* Single Card View */  
   .custom-card {
     display: flex;
